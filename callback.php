@@ -1,4 +1,4 @@
-<?
+<?php
 
   // Replace with the Company ID
   $company='CompanyID';
