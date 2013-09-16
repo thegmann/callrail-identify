@@ -1,11 +1,10 @@
 <?
 
-  // Replace with the Company ID Key
+  // Replace with the Company ID
   $company='CompanyID';
+
   // Replace with your API Key
   $api_key = '5b6e4157963a4a34d5a95e7f35f6a2fc';
-
-
 
 	// Retrieve the request's body and parse it as JSON
   $body = @file_get_contents('php://input');
@@ -15,13 +14,12 @@
   // Examine meta data from the response
   $caller = $event_json->callernum;
 
-  $start=date('c',date(U)-60); //You may want to shorten this if you get tons of calls
-  $end=date('c',date(U)+60); //You may want to shorten this if you get tons of calls
-
+  $start=date('c',date(U)-60); //You may want to shorten this if you get tons of calls, try 30 instead of 60
+  $end=date('c',date(U)+60); //You may want to shorten this if you get tons of calls, try 30 instead of 60
+  
   $api_url = "https://api.callrail.com/v1/calls.json?company_id=$company&start_date=$start&end_date=$end";
 
   $ch = curl_init($api_url);
-
   curl_setopt($ch, CURLOPT_HEADER, 0);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_HTTPHEADER, array("Authorization: Token token=\"{$api_key}\""));
