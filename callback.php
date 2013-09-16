@@ -6,7 +6,7 @@
   // Replace with your API Key
   $api_key = '5b6e4157963a4a34d5a95e7f35f6a2fc';
 
-	// Retrieve the request's body and parse it as JSON
+  // Retrieve the request's body and parse it as JSON
   $body = @file_get_contents('php://input');
   $event_json = json_decode($body);
   curl_close($ch);
